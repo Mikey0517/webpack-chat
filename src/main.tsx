@@ -55,7 +55,7 @@ export default function Main () {
 
       if (!allPeople.data[user.userID]) {
         allPeople.data[user.userID] = user
-        allPeople.sort.splice(1, 0, [user.userID])
+        allPeople.sort.splice(1, 0, user.userID)
         dispatch(ALL_PEOPLE_SET(allPeople))
       }
     })

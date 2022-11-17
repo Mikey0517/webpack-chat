@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-16 00:30:56
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-17 19:09:36
+ * @LastEditTime : 2022-11-17 23:54:32
  * @FilePath     : /chat-webpack/server/socket/controller/index.ts
  */
 import { messageStore, sessionStore, userStore } from '../store/index.js';
@@ -39,7 +39,6 @@ export const sendSessionAndUser = (socket: any) => {
 
 export const getFriendsUsers = (socket: any) => {
   const user = userStore.findUser(socket.userID)
-  console.log('%c [ user ]-36', 'font-size:13px; background:pink; color:#bf2c9f;', user)
   const messages = messageStore.findMessagesForUser(user.userID)
   const messagesPerUser = new Map();
   const friends: any = []
@@ -98,11 +97,11 @@ export const sendMessage = (socket: any) => {
     };
     socket.to(to).to(socket.userID).emit(action.PRIVATE_MESSAGE, message, fromUser);
     messageStore.saveMessage(message);
-    if (!fromUser.friends.includes(to)) {
+    if (Array.isArray(fromUser.friends) && !fromUser.friends.includes(to)) {
       fromUser.friends.push(to) 
       userStore.saveUser(fromUser.userID, fromUser)
     }
-    if (!toUser.friends.includes(fromUser.userID)) {
+    if (Array.isArray(toUser.friends) && !toUser.friends.includes(fromUser.userID)) {
       toUser.friends.push(fromUser.userID)
       userStore.saveUser(to, toUser)
     }

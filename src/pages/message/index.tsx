@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-13 03:23:40
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-17 20:36:21
+ * @LastEditTime : 2022-11-17 23:18:16
  * @FilePath     : /chat-webpack/src/pages/message/index.tsx
  */
 import { useNavigate } from "react-router-dom";
@@ -41,10 +41,16 @@ export default function Message () {
                 <Badge key={friend.username} content={friend.notify?.num || null} style={{'--right': '10%', '--top': '50%'}} wrapperStyle={{width: '100%'}}>
                   <List.Item
                     prefix={
-                      <ChatAvatar
-                        size='4rem'
-                        text={friend.username}
-                      />
+                      <Badge
+                        color='#87d068'
+                        content={Badge.dot}
+                        style={{ '--right': '10%', '--top': '80%' }}
+                      >
+                        <ChatAvatar
+                          size='4rem'
+                          text={friend.username}
+                        />
+                      </Badge>
                     }
                     description={cloneDeep(friend.messages)?.pop()?.content}
                     arrow={false}
