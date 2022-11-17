@@ -1,6 +1,6 @@
 # webpack-chat
 
-Webpack + Koa + React + SSR + ESM + Redux
+Typescript + Webpack + Koa + React + SSR + ESM + Redux
 
 ## dev
 
