@@ -1,0 +1,30 @@
+.all-people {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  .main {
+    flex-grow: 1;
+    overflow: auto;
+    background-color: #FFFFFF;
+
+    .adm-list-item-content {
+      height: 6rem;
+
+      .adm-list-item-content-main {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        .adm-list-item-description {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .adm-pull-to-refresh {
+      height: 100%;
+    }
+  }
+}

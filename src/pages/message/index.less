@@ -1,0 +1,41 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .header {
+    height: 4.5rem;
+
+    .adm-nav-bar-title {
+      padding: 0;
+      flex: none;
+    }
+  }
+
+  .main {
+    flex-grow: 1;
+    overflow: auto;
+    background-color: #FFFFFF;
+
+    .adm-list-item-content {
+      height: 6rem;
+
+      .adm-list-item-content-main {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        .adm-list-item-description {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .adm-badge-content {
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      min-width: 1.8rem;
+    }
+  }
+}

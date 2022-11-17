@@ -1,0 +1,74 @@
+.message-panel {
+  position: relative;
+  height: 100%;
+
+  > .wrap {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: calc(100% - 5rem);
+    display: flex;
+    flex-direction: column;
+
+    > .main {
+      flex-grow: 1;
+      overflow: auto;
+
+      .message-item {
+        display: flex;
+        align-items: baseline;
+        padding: 1rem 2rem;
+
+        > .chat-avatar {
+          flex-shrink: 0;
+          margin-right: 1rem;
+        }
+
+        > .content {
+          padding: .8rem;
+          background-color: #95ec69;
+          font-size: 1.6rem;
+          border-radius: .5rem;
+          max-width: 70%;
+        }
+
+        &.self {
+          flex-direction: row-reverse;
+
+          > .chat-avatar {
+            margin-right: 0;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+
+    > .footer {
+      flex-shrink: 0;
+      height: 5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 -0.1rem 0.5rem 0 #dfdbdb;
+  
+      .adm-input {
+        flex-grow: 1;
+        background-color: #FFFFFF;
+        height: 3.5rem;
+        width: auto;
+        max-width: none;
+        margin: 0 1rem 0 2.5rem;
+        padding: 0 0.5rem;
+      }
+  
+      > .antd-mobile-icon {
+        flex-shrink: 0;
+        margin-right: 1.5rem;
+  
+        & + .antd-mobile-icon {
+          margin-right: 1.5rem;
+        }
+      }
+    }
+  }
+}
