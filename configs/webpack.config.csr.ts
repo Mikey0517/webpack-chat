@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-10 23:21:33
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-17 22:35:58
+ * @LastEditTime : 2022-11-18 14:49:17
  * @FilePath     : /chat-webpack/configs/webpack.config.csr.ts
  */
 import webpack from 'webpack'
@@ -37,7 +37,7 @@ export default {
       type: 'module'
     }
   },
-  devtool: isProd ? 'none' : 'eval-source-map',
+  devtool: isProd ? false : 'eval-source-map',
   experiments: {
     outputModule: true
   },
