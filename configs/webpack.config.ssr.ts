@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-11 01:16:38
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-20 02:28:42
+ * @LastEditTime : 2022-11-20 02:48:51
  * @FilePath     : /chat-webpack/configs/webpack.config.ssr.ts
  */
 import webpack from 'webpack'
@@ -23,7 +23,7 @@ export default {
   output: {
     path: path.resolve('dist/server'),
     filename: '[name].js',
-    publicPath: publicPath,
+    publicPath,
     chunkFilename: '[id].js',
     chunkFormat: !isProd ? 'commonjs' : 'module',
     clean: true,

@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-10 23:21:33
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-20 02:28:24
+ * @LastEditTime : 2022-11-20 02:55:59
  * @FilePath     : /chat-webpack/configs/webpack.config.csr.ts
  */
 import webpack from 'webpack'
@@ -31,7 +31,7 @@ export default {
   output: {
     path: path.resolve('dist/client'),
     filename: '[name].js',
-    publicPath: publicPath,
+    publicPath,
     module: true,
     clean: true,
     library: {
@@ -93,7 +93,8 @@ export default {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      publicPath: '/',
+      publicPath,
+      favicon: 'public/moutu.jpg',
       template: 'index.html',
       scriptLoading: 'module',
       inject: 'body',
