@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-10 23:21:33
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-18 14:49:17
+ * @LastEditTime : 2022-11-19 16:46:47
  * @FilePath     : /chat-webpack/configs/webpack.config.csr.ts
  */
 import webpack from 'webpack'
@@ -14,7 +14,7 @@ import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 
 const mode = process.env.NODE_ENV
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = mode === 'production'
 
 const entry = [
   path.resolve('src/entry-client.tsx')
@@ -43,7 +43,7 @@ export default {
   },
   resolve: {
     modules: [ path.resolve('src'), 'node_modules' ],
-    extensions: ['.ts', '.js', '.tsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
       '@': path.resolve('src')
     }

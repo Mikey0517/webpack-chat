@@ -2,15 +2,16 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-11 01:16:38
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-14 22:51:17
+ * @LastEditTime : 2022-11-19 16:28:08
  * @FilePath     : /chat-webpack/configs/webpack.config.ssr.ts
  */
 import webpack from 'webpack'
 import path from 'path'
 import nodeExternals from 'webpack-node-externals'
 
+// process.env.NODE_ENV
 const mode = process.env.NODE_ENV
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = mode === 'production'
 
 export default {
   mode,
@@ -35,7 +36,7 @@ export default {
   },
   resolve: {
     modules: [ path.resolve('src'), 'node_modules' ],
-    extensions: [ '.ts', '.js', '.tsx', '.json' ],
+    extensions: [ '.ts', '.tsx', '.js', '.json' ],
     alias: {
       '@': path.resolve('src')
     }
@@ -46,6 +47,7 @@ export default {
       importType: !isProd ? 'commonjs' : 'node-commonjs',
 			allowlist: [
 				/\.(?!(?:tsx?|jsx?|json)$).{1,5}$/i,
+        // 允许 antd-mobile，否则无法忽略内部 css
         /^antd-mobile/
 			],
 		}),
