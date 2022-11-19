@@ -20,5 +20,6 @@ EXPOSE 8080
 
 # Define NODE_ENV environment variable
 ENV NODE_ENV production
+ENV PUBLIC_PATH ${PUBLIC_PATH}
 
 CMD yarn run serve

@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-10 23:21:33
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-19 16:46:47
+ * @LastEditTime : 2022-11-20 02:28:24
  * @FilePath     : /chat-webpack/configs/webpack.config.csr.ts
  */
 import webpack from 'webpack'
@@ -14,6 +14,7 @@ import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 
 const mode = process.env.NODE_ENV
+const publicPath = process.env.PUBLIC_PATH || '/'
 const isProd = mode === 'production'
 
 const entry = [
@@ -30,7 +31,7 @@ export default {
   output: {
     path: path.resolve('dist/client'),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: publicPath,
     module: true,
     clean: true,
     library: {

@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-11 01:16:38
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-19 16:28:08
+ * @LastEditTime : 2022-11-20 02:28:42
  * @FilePath     : /chat-webpack/configs/webpack.config.ssr.ts
  */
 import webpack from 'webpack'
@@ -11,6 +11,7 @@ import nodeExternals from 'webpack-node-externals'
 
 // process.env.NODE_ENV
 const mode = process.env.NODE_ENV
+const publicPath = process.env.PUBLIC_PATH || '/'
 const isProd = mode === 'production'
 
 export default {
@@ -22,7 +23,7 @@ export default {
   output: {
     path: path.resolve('dist/server'),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: publicPath,
     chunkFilename: '[id].js',
     chunkFormat: !isProd ? 'commonjs' : 'module',
     clean: true,
