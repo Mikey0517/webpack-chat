@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-11 01:16:38
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-20 02:48:51
+ * @LastEditTime : 2022-11-20 03:19:10
  * @FilePath     : /chat-webpack/configs/webpack.config.ssr.ts
  */
 import webpack from 'webpack'
@@ -76,6 +76,7 @@ export default {
   plugins: [
     new webpack.DefinePlugin({
 			'NODE_ENV': JSON.stringify(mode),
+      'PUBLIC_PATH': JSON.stringify(publicPath)
 		}),
   ]
 }

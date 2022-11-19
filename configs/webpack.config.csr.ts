@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-10 23:21:33
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-20 02:55:59
+ * @LastEditTime : 2022-11-20 03:19:26
  * @FilePath     : /chat-webpack/configs/webpack.config.csr.ts
  */
 import webpack from 'webpack'
@@ -100,6 +100,10 @@ export default {
       inject: 'body',
 			chunksSortMode: 'auto'
     }),
+    new webpack.DefinePlugin({
+			'NODE_ENV': JSON.stringify(mode),
+      'PUBLIC_PATH': JSON.stringify(publicPath)
+		}),
     new CopyPlugin({
       patterns: [
         { from: "public", to: "public" },
