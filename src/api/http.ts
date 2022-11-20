@@ -2,14 +2,15 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-16 03:03:44
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-16 22:49:58
+ * @LastEditTime : 2022-11-20 17:23:28
  * @FilePath     : /chat-webpack/src/api/http.ts
  */
 import axios from 'axios'
 import { Toast } from 'antd-mobile'
 
 const instance = axios.create({
-  baseURL: '/api'
+  // @ts-ignore
+  baseURL: `${PUBLIC_PATH === '/' ? '' : PUBLIC_PATH }/api`
 })
 
 // 添加请求拦截器

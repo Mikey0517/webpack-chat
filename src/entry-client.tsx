@@ -2,7 +2,7 @@
  * @Author       : 徐洋皓月
  * @Date         : 2022-11-10 23:07:14
  * @LastEditors  : 徐洋皓月
- * @LastEditTime : 2022-11-15 20:26:31
+ * @LastEditTime : 2022-11-20 16:56:31
  * @FilePath     : /chat-webpack/src/entry-client.tsx
  */
 import ReactDOM from 'react-dom/client'
@@ -14,7 +14,8 @@ import Main from '@/main'
 const dom = document.getElementById('root') as HTMLElement
 const App = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    {/* @ts-ignore */}
+    <BrowserRouter basename={PUBLIC_PATH}>
       <Main />
     </BrowserRouter>
   </Provider>
