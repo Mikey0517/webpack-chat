@@ -7,10 +7,13 @@ WORKDIR /webpack-chat
 # Copy the current directory contents into the container at /app
 ADD . /webpack-chat
 
+ARG PUBLIC_PATH
+ENV PUBLIC_PATH ${PUBLIC_PATH}
+
 # Run product-portal build
 RUN yarn config set registry https://registry.npm.taobao.org --global \
   && NODE_ENV=development yarn \
-  && PUBLIC_PATH=${PUBLIC_PATH} yarn run build \
+  && yarn run build \
   && rm -rf `ls -a .|egrep -v '(^\.\.?$|dist|configs|server|LICENSE|tsconfig.json|package.json)'` \
   && NODE_ENV=production yarn \
   && yarn cache clean
